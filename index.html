@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar color de fondo aleatorio</title>
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+    
+    <!-- Script para interactuar con el DOM -->
+    <script>
+        // Función que genera un color hexadecimal aleatorio
+        function generarColorAleatorio() {
+            let caracteresHexadecimales = '0123456789ABCDEF';
+            let color = '#'; // El color hexadecimal siempre empieza con "#"
+            
+            // Genera seis caracteres aleatorios para formar un color hexadecimal
+            for (let i = 0; i < 6; i++) {
+                // Añade un caracter aleatorio al string 'color'
+                color += caracteresHexadecimales[Math.floor(Math.random() * 16)];
+            }
+            
+            return color; // Devuelve el color generado
+        }
+
+        // Función que cambia el color de fondo del body al hacer clic en el botón
+        function cambiarColorFondo() {
+            // Llama a la función para obtener un color aleatorio
+            let colorAleatorio = generarColorAleatorio();
+            
+            // Cambia el color de fondo del body al color aleatorio generado
+            document.body.style.backgroundColor = colorAleatorio;
+        }
+    </script>
+</head>
+<body>
+
+    <button onclick="cambiarColorFondo()">Cambiar color de fondo</button>
+
+</body>
+</html>
